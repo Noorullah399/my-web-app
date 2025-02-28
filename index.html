@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracker with Tags</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bg-primary text-white p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h3">Progress Tracker</h1>
+      <nav>
+        <a href="#register-plan" class="text-white me-3">Register Plan</a>
+        <a href="#add-progress" class="text-white me-3">Add Progress</a>
+        <a href="#dashboard" class="text-white">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container my-4">
+    <!-- Register Plan Section -->
+    <section id="register-plan">
+      <h2>Register Your Plan</h2>
+      <form id="plan-form" class="mb-4">
+        <div class="mb-3">
+          <label for="plan-name" class="form-label">Plan Name</label>
+          <input type="text" id="plan-name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="plan-tags" class="form-label">Tags (comma-separated)</label>
+          <input type="text" id="plan-tags" class="form-control" placeholder="e.g., Work, Study, Exercise" required>
+        </div>
+        <div class="mb-3">
+          <label for="plan-description" class="form-label">Description</label>
+          <textarea id="plan-description" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Plan</button>
+      </form>
+      <ul id="plan-list" class="list-group"></ul>
+    </section>
+
+    <!-- Add Progress Section -->
+    <section id="add-progress">
+      <h2>Add Today's Progress</h2>
+      <form id="progress-form">
+        <div class="mb-3">
+          <label for="progress-date" class="form-label">Date</label>
+          <input type="date" id="progress-date" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="progress-tags" class="form-label">Tags</label>
+          <input type="text" id="progress-tags" class="form-control" placeholder="Use matching tags from plans" required>
+        </div>
+        <div class="mb-3">
+          <label for="progress-details" class="form-label">Details</label>
+          <textarea id="progress-details" class="form-control" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="progress-image" class="form-label">Upload Image</label>
+          <input type="file" id="progress-image" class="form-control" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fa-solid fa-check"></i> Add Progress</button>
+      </form>
+      <ul id="progress-list" class="list-group mt-3"></ul>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <canvas id="progress-chart" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white text-center p-3">
+    <p>&copy; 2024 Progress Tracker</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
